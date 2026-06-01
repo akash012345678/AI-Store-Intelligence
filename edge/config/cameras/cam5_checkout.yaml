@@ -1,0 +1,36 @@
+# PurpleInsight CAM 5 Profile: Cash Counter Checkout
+
+store_id: "store-7ef38ab2-1456-42d4-a0fb-365922e3914a"
+camera_id: "cam-c48f88c2-3bbd-4654-9988-faad44e59df6"
+
+# Target CCTV Ingestion video stream
+video_source: "data/CCTV Footage/CAM 5.mp4"
+
+# Model settings
+model_path: "yolov8n.pt"
+confidence_threshold: 0.40
+iou_threshold: 0.45
+tracker_config: "bytetrack.yaml"
+device: "cpu"
+
+# Analytics parameters
+occupancy_interval: 5.0
+dwell_cooldown_seconds: 3.0
+re_entry_time_threshold: 15.0
+re_entry_distance_threshold: 80.0
+
+# Dummy gate far away (since CAM 5 focuses strictly on checkout)
+entrance_gate:
+  name: "dummy_gate"
+  line_a: [0, 0]
+  line_b: [10, 10]
+
+# Layout zones (checkout wait-time polygon)
+zones:
+  - id: "checkout_queue"
+    name: "Checkout Waiting Queue"
+    polygon:
+      - [900, 200]
+      - [1200, 200]
+      - [1200, 500]
+      - [900, 500]

@@ -1,0 +1,203 @@
+{
+  "GET_api_v1_health": {
+    "status_code": 200,
+    "response": {
+      "status": "healthy",
+      "database": "connected",
+      "timestamp": "2026-05-31T05:55:17.035123+00:00"
+    }
+  },
+  "POST_api_v1_telemetry_entry": {
+    "status_code": 201,
+    "payload": {
+      "store_id": "store-101",
+      "camera_id": "cam-1",
+      "track_id": 901,
+      "timestamp": "2026-05-31T12:00:00Z",
+      "re_entry_detected": false
+    },
+    "response": {
+      "success": true,
+      "message": "Shopper entry telemetry persisted successfully.",
+      "session_id": 1,
+      "track_id": 901
+    }
+  },
+  "POST_api_v1_telemetry_dwell": {
+    "status_code": 201,
+    "payload": {
+      "store_id": "store-101",
+      "camera_id": "cam-1",
+      "track_id": 901,
+      "zone_id": "aisle_1_fresh",
+      "entered_at": "2026-05-31T12:01:00Z",
+      "exited_at": "2026-05-31T12:03:00Z",
+      "dwell_time_seconds": 120.0
+    },
+    "response": {
+      "success": true,
+      "message": "Zone dwell telemetry logged successfully.",
+      "dwell_log_id": 1
+    }
+  },
+  "POST_api_v1_telemetry_exit": {
+    "status_code": 200,
+    "payload": {
+      "store_id": "store-101",
+      "camera_id": "cam-1",
+      "track_id": 901,
+      "timestamp": "2026-05-31T12:05:00Z"
+    },
+    "response": {
+      "success": true,
+      "message": "Shopper exit telemetry persisted successfully and session closed.",
+      "session_id": 1
+    }
+  },
+  "POST_api_v1_telemetry_transaction": {
+    "status_code": 201,
+    "payload": {
+      "receipt_number": "REC-9920",
+      "total_amount": 100.0,
+      "tax_amount": 10.0,
+      "transaction_time": "2026-05-31T12:05:15Z",
+      "payment_method": "Credit",
+      "items": [
+        {
+          "sku": "SKU-99",
+          "product_name": "Premium Apple Box",
+          "category": "Produce",
+          "brand": "OrchardFresh",
+          "quantity": 2,
+          "unit_price": 50.0
+        }
+      ]
+    },
+    "response": {
+      "success": true,
+      "message": "POS Transaction registered and spatial-temporal correlation logic executed.",
+      "transaction_id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d9b1d",
+      "receipt_number": "REC-9920",
+      "correlated_track_id": 901,
+      "correlation_confidence": 0.97
+    }
+  },
+  "GET_api_v1_analytics_metrics": {
+    "status_code": 200,
+    "response": {
+      "total_visitors": 1,
+      "current_occupancy": 0,
+      "average_dwell_time": 5.0,
+      "peak_hour": "12:00-13:00",
+      "conversion_rate": 100.0
+    }
+  },
+  "GET_api_v1_analytics_funnel": {
+    "status_code": 200,
+    "response": {
+      "visitors": 1,
+      "engaged_visitors": 1,
+      "buyers": 1,
+      "conversion_rate": 100.0
+    }
+  },
+  "GET_api_v1_analytics_occupancy": {
+    "status_code": 200,
+    "response": {
+      "current": 0,
+      "maximum": 20,
+      "average": 5
+    }
+  },
+  "GET_api_v1_analytics_zones": {
+    "status_code": 200,
+    "response": {
+      "most_visited_zone": "Aisle 1 - Fresh Produce",
+      "least_visited_zone": "Checkout Waiting Queue",
+      "zone_statistics": [
+        {
+          "zone_id": "aisle_1_fresh",
+          "name": "Aisle 1 - Fresh Produce",
+          "visit_count": 1,
+          "unique_visitors": 1,
+          "avg_dwell_seconds": 120.0
+        },
+        {
+          "zone_id": "checkout_queue",
+          "name": "Checkout Waiting Queue",
+          "visit_count": 1,
+          "unique_visitors": 1,
+          "avg_dwell_seconds": 50.0
+        }
+      ]
+    }
+  },
+  "GET_api_v1_analytics_heatmap": {
+    "status_code": 200,
+    "response": {
+      "zone_density": {
+        "aisle_1_fresh": 1.0,
+        "checkout_queue": 0.5
+      },
+      "coordinates": [
+        {
+          "x": 25.0,
+          "y": 15.0,
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "GET_api_v1_analytics_sales": {
+    "status_code": 200,
+    "response": {
+      "top_products": [
+        {
+          "name": "Premium Apple Box",
+          "volume": 2,
+          "revenue": 100.0
+        }
+      ],
+      "top_brands": [
+        {
+          "name": "OrchardFresh",
+          "volume": 2,
+          "revenue": 100.0
+        }
+      ],
+      "top_categories": [
+        {
+          "name": "Produce",
+          "volume": 2,
+          "revenue": 100.0
+        }
+      ]
+    }
+  },
+  "GET_api_v1_analytics_alerts": {
+    "status_code": 200,
+    "response": {
+      "alert_type": "operational_normal",
+      "severity": "LOW",
+      "message": "Store operational indicators are within target bounds.",
+      "timestamp": "2026-05-31T11:12:20+05:30"
+    }
+  },
+  "GET_api_v1_analytics_layout_engagement": {
+    "status_code": 200,
+    "response": [
+      {
+        "zone_id": "aisle_1_fresh",
+        "name": "Aisle 1 - Fresh Produce",
+        "attractiveness_index": 1.0,
+        "hold_power": 120.0
+      },
+      {
+        "zone_id": "checkout_queue",
+        "name": "Checkout Waiting Queue",
+        "attractiveness_index": 1.0,
+        "hold_power": 50.0
+      }
+    ]
+  }
+}

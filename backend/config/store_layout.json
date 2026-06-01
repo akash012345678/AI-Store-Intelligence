@@ -1,0 +1,133 @@
+{
+  "store_id": "store-101",
+  "layout_width": 1200,
+  "layout_height": 600,
+  "zones": [
+    {
+      "id": "main_entrance_exit",
+      "name": "Entrance & Exit Lobby",
+      "zone_type": "entrance",
+      "polygon": [[20, 220], [140, 220], [140, 400], [20, 400]]
+    },
+    {
+      "id": "cash_counter",
+      "name": "Cash Counter Checkout",
+      "zone_type": "checkout",
+      "polygon": [[1000, 200], [1120, 200], [1120, 420], [1000, 420]]
+    },
+    {
+      "id": "makeup_unit",
+      "name": "Makeup Vanity Unit",
+      "zone_type": "service",
+      "polygon": [[550, 200], [720, 200], [720, 320], [550, 320]]
+    },
+    {
+      "id": "eb_korean",
+      "name": "EB Korean Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[100, 50], [200, 50], [200, 100], [100, 100]]
+    },
+    {
+      "id": "the_face_shop",
+      "name": "The Face Shop display",
+      "zone_type": "brand_shelf",
+      "polygon": [[210, 50], [310, 50], [310, 100], [210, 100]]
+    },
+    {
+      "id": "good_vibes",
+      "name": "Good Vibes Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[320, 50], [420, 50], [420, 100], [320, 100]]
+    },
+    {
+      "id": "dermdoc",
+      "name": "DermDoc Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[430, 50], [530, 50], [530, 100], [430, 100]]
+    },
+    {
+      "id": "minimalist",
+      "name": "Minimalist Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[540, 50], [640, 50], [640, 100], [540, 100]]
+    },
+    {
+      "id": "aqualogica",
+      "name": "Aqualogica Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[650, 50], [750, 50], [750, 100], [650, 100]]
+    },
+    {
+      "id": "lakme_skin",
+      "name": "Lakme Skin Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[760, 50], [860, 50], [860, 100], [760, 100]]
+    },
+    {
+      "id": "accessories_shelf",
+      "name": "Accessories Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[870, 50], [970, 50], [970, 100], [870, 100]]
+    },
+    {
+      "id": "maybelline",
+      "name": "Maybelline Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[130, 500], [230, 500], [230, 550], [130, 550]]
+    },
+    {
+      "id": "faces_canada",
+      "name": "Faces Canada Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[240, 500], [340, 500], [340, 550], [240, 550]]
+    },
+    {
+      "id": "lakme_makeup",
+      "name": "Lakme Makeup Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[350, 500], [450, 500], [450, 550], [350, 550]]
+    },
+    {
+      "id": "colorbar_sugar",
+      "name": "Colorbar & Sugar Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[460, 500], [560, 500], [560, 550], [460, 550]]
+    },
+    {
+      "id": "swiss_beauty",
+      "name": "Swiss Beauty Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[570, 500], [670, 500], [670, 550], [570, 550]]
+    },
+    {
+      "id": "renee_nybae",
+      "name": "Renee & NY Bae Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[680, 500], [780, 500], [780, 550], [680, 550]]
+    },
+    {
+      "id": "alps_goodness",
+      "name": "Alps Goodness Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[790, 500], [890, 500], [890, 550], [790, 550]]
+    },
+    {
+      "id": "streax_shelf",
+      "name": "Streax Display",
+      "zone_type": "brand_shelf",
+      "polygon": [[900, 500], [1000, 500], [1000, 550], [900, 550]]
+    },
+    {
+      "id": "fragrance_gondola",
+      "name": "Fragrance Gondola",
+      "zone_type": "brand_shelf",
+      "polygon": [[320, 250], [400, 250], [400, 350], [320, 350]]
+    },
+    {
+      "id": "pmu_gondola",
+      "name": "PMU Gondola",
+      "zone_type": "brand_shelf",
+      "polygon": [[1060, 480], [1140, 480], [1140, 550], [1060, 550]]
+    }
+  ]
+}

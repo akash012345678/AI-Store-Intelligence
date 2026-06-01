@@ -1,0 +1,14 @@
+# PurpleInsight Backend Configuration
+
+# Database connection URL
+# SQLite database file is created locally by default. For production, replace with:
+# postgresql://user:pass@host:5432/dbname
+database_url: "sqlite:///store_intelligence.db"
+
+# Spatial-Temporal POS Transaction Matcher Tuning
+# Defines the window relative to transaction time T during which a customer must have exited the store.
+checkout_window_before_seconds: 600   # 10 minutes before transaction
+checkout_window_after_seconds: 120    # 2 minutes after transaction
+
+# The specific zone name representing the checkout queue to filter candidate tracks
+checkout_queue_zone_id: "checkout_queue"

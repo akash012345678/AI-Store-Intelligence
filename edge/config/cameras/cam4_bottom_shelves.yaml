@@ -1,0 +1,98 @@
+# PurpleInsight CAM 4 — Bottom Shelf Brand Row
+# Covers: Backlit, Maybelline, Faces Canada, Lakme,
+#         Colorbar+Sugar, Swiss Beauty, Renee/NY Bae,
+#         Alps Goodness, Streax
+
+store_id: "store-7ef38ab2-1456-42d4-a0fb-365922e3914a"
+camera_id: "cam-c48f88c2-3bbd-4654-9988-faad44e59df4"
+
+video_source: "data/CCTV Footage/CAM 4.mp4"
+
+model_path: "yolov8n.pt"
+confidence_threshold: 0.40
+iou_threshold: 0.45
+tracker_config: "bytetrack.yaml"
+device: "cpu"
+
+occupancy_interval: 5.0
+dwell_cooldown_seconds: 3.0
+re_entry_time_threshold: 15.0
+re_entry_distance_threshold: 80.0
+
+entrance_gate:
+  name: "dummy_gate_cam4"
+  line_a: [0, 0]
+  line_b: [10, 0]
+
+zones:
+  - id: "backlit_section"
+    name: "Backlit Display"
+    polygon:
+      - [10,  600]
+      - [38,  600]
+      - [38,  690]
+      - [10,  690]
+
+  - id: "bottom_shelf_maybelline"
+    name: "Maybelline"
+    polygon:
+      - [40,  600]
+      - [150, 600]
+      - [150, 690]
+      - [40,  690]
+
+  - id: "bottom_shelf_faces_canada"
+    name: "Faces Canada"
+    polygon:
+      - [155, 600]
+      - [275, 600]
+      - [275, 690]
+      - [155, 690]
+
+  - id: "bottom_shelf_lakme"
+    name: "Lakme"
+    polygon:
+      - [280, 600]
+      - [380, 600]
+      - [380, 690]
+      - [280, 690]
+
+  - id: "bottom_shelf_colorbar_sugar"
+    name: "Colorbar + Sugar"
+    polygon:
+      - [385, 600]
+      - [510, 600]
+      - [510, 690]
+      - [385, 690]
+
+  - id: "bottom_shelf_swiss_beauty"
+    name: "Swiss Beauty"
+    polygon:
+      - [515, 600]
+      - [620, 600]
+      - [620, 690]
+      - [515, 690]
+
+  - id: "bottom_shelf_renee_ny_bae"
+    name: "Renee / NY Bae"
+    polygon:
+      - [625, 600]
+      - [745, 600]
+      - [745, 690]
+      - [625, 690]
+
+  - id: "bottom_shelf_alps_goodness"
+    name: "Alps Goodness"
+    polygon:
+      - [750, 600]
+      - [850, 600]
+      - [850, 690]
+      - [750, 690]
+
+  - id: "bottom_shelf_streax"
+    name: "Streax"
+    polygon:
+      - [855, 600]
+      - [960, 600]
+      - [960, 690]
+      - [855, 690]

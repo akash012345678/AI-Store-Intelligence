@@ -1,0 +1,90 @@
+# PurpleInsight CAM 2 — Top Shelf Brand Row
+# Covers: EB Korean, The Face Shop, Good Vibes, DermDoc,
+#         Minimalist, Aqualogica, Lakme Skin, Accessories
+
+store_id: "store-7ef38ab2-1456-42d4-a0fb-365922e3914a"
+camera_id: "cam-c48f88c2-3bbd-4654-9988-faad44e59df2"
+
+video_source: "data/CCTV Footage/CAM 2.mp4"
+
+model_path: "yolov8n.pt"
+confidence_threshold: 0.40
+iou_threshold: 0.45
+tracker_config: "bytetrack.yaml"
+device: "cpu"
+
+occupancy_interval: 5.0
+dwell_cooldown_seconds: 3.0
+re_entry_time_threshold: 15.0
+re_entry_distance_threshold: 80.0
+
+# No main gate for top-shelf cam — dummy segment off-screen
+entrance_gate:
+  name: "dummy_gate_cam2"
+  line_a: [0, 0]
+  line_b: [10, 0]
+
+zones:
+  - id: "top_shelf_eb_korean"
+    name: "EB Korean"
+    polygon:
+      - [85,  30]
+      - [195, 30]
+      - [195, 120]
+      - [85,  120]
+
+  - id: "top_shelf_the_face_shop"
+    name: "The Face Shop"
+    polygon:
+      - [200, 30]
+      - [310, 30]
+      - [310, 120]
+      - [200, 120]
+
+  - id: "top_shelf_good_vibes"
+    name: "Good Vibes"
+    polygon:
+      - [315, 30]
+      - [420, 30]
+      - [420, 120]
+      - [315, 120]
+
+  - id: "top_shelf_dermdoc"
+    name: "DermDoc"
+    polygon:
+      - [425, 30]
+      - [520, 30]
+      - [520, 120]
+      - [425, 120]
+
+  - id: "top_shelf_minimalist"
+    name: "Minimalist"
+    polygon:
+      - [525, 30]
+      - [625, 30]
+      - [625, 120]
+      - [525, 120]
+
+  - id: "top_shelf_aqualogica"
+    name: "Aqualogica"
+    polygon:
+      - [630, 30]
+      - [730, 30]
+      - [730, 120]
+      - [630, 120]
+
+  - id: "top_shelf_lakme_skin"
+    name: "Lakme Skin"
+    polygon:
+      - [735, 30]
+      - [855, 30]
+      - [855, 120]
+      - [735, 120]
+
+  - id: "top_shelf_accessories"
+    name: "Accessories"
+    polygon:
+      - [860, 30]
+      - [990, 30]
+      - [990, 120]
+      - [860, 120]

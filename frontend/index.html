@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetailPulse AI — Store Analytics Platform</title>
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glow Points -->
+  <div class="bg-gradient-purple"></div>
+  <div class="bg-gradient-blue"></div>
+
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="main-header">
+      <div class="brand-logo">
+        <span class="logo-accent">RETAIL</span>PULSE
+        <span class="logo-sub">AI Store Intelligence</span>
+      </div>
+      <div class="header-controls">
+        <div class="store-selector">
+          <label for="storeSelect">Active Hub:</label>
+          <select id="storeSelect">
+            <option value="store-7ef38ab2-1456-42d4-a0fb-365922e3914a">Brigade Road — Bangalore</option>
+            <option value="store-101">Legacy Test Hub</option>
+          </select>
+        </div>
+        <div class="system-status" id="systemStatus">
+          <span class="status-dot green pulse"></span>
+          <span class="status-label">Ingestion Pipeline Active</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <main class="dashboard-grid">
+      
+      <!-- ====================================================================
+           1. TOP SECTION: EXECUTIVE KPI RIBBON
+           ==================================================================== -->
+      <section class="kpi-ribbon">
+        
+        <!-- KPI 1: Live Occupancy -->
+        <div class="metric-card live-occupancy-card">
+          <div class="card-glow"></div>
+          <div class="metric-header">
+            <h3>Live Occupancy</h3>
+            <span class="metric-card-icon">👥</span>
+          </div>
+          <div class="metric-value-container">
+            <span class="metric-value" id="currentOccupancy">0</span>
+            <span class="metric-badge green" id="occupancyTrend">STABLE</span>
+          </div>
+          <div class="metric-trend-container">
+            <span class="metric-description">Active shoppers tracked inside floor regions</span>
+          </div>
+        </div>
+
+        <!-- KPI 2: Total Entrants -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <h3>Shoppers Today</h3>
+            <span class="metric-card-icon">🚪</span>
+          </div>
+          <div class="metric-value-container">
+            <span class="metric-value" id="totalVisitors">0</span>
+          </div>
+          <div class="metric-trend-container">
+            <span class="metric-trend-arrow up">▲ +12%</span>
+            <span class="metric-description">vs yesterday baseline</span>
+          </div>
+        </div>
+
+        <!-- KPI 3: Average Dwell -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <h3>Avg Dwell Time</h3>
+            <span class="metric-card-icon">⏱️</span>
+          </div>
+          <div class="metric-value-container">
+            <span class="metric-value" id="avgDwellTime">0.0</span>
+            <span class="metric-unit">min</span>
+          </div>
+          <div class="metric-trend-container">
+            <span class="metric-trend-arrow up">▲ +4.2%</span>
+            <span class="metric-description">engagement duration</span>
+          </div>
+        </div>
+
+        <!-- KPI 4: Spatial Conversion -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <h3>Conversion Rate</h3>
+            <span class="metric-card-icon">💰</span>
+          </div>
+          <div class="metric-value-container">
+            <span class="metric-value" id="conversionRate">0.0</span>
+            <span class="metric-unit">%</span>
+          </div>
+          <div class="metric-trend-container">
+            <span class="metric-trend-arrow down">▼ -1.8%</span>
+            <span class="metric-description">shopper-to-checkout correlation</span>
+          </div>
+        </div>
+
+        <!-- KPI 5: Peak Density -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <h3>Peak Traffic Hour</h3>
+            <span class="metric-card-icon">⚡</span>
+          </div>
+          <div class="metric-value-container">
+            <span class="metric-value-time" id="peakHour">N/A</span>
+          </div>
+          <div class="metric-trend-container">
+            <span class="metric-description">Highest concentration hourly interval</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           2. MIDDLE SECTION: LARGE ANALYTICS AREA (CHARTS)
+           ==================================================================== -->
+      <section class="middle-analytics-section">
+        
+        <!-- Live Occupancy Timeline SVG Plot -->
+        <div class="analytics-panel">
+          <div class="panel-header">
+            <h2>Real-Time Occupancy Timeline</h2>
+            <span class="panel-header-badge" id="timelineTrend">LIVE PIPELINE DATA</span>
+          </div>
+          <div class="timeline-graph-container">
+            <div class="svg-sparkline-wrapper">
+              <svg class="sparkline-svg" id="sparklineSvg" viewBox="0 0 800 200">
+                <defs>
+                  <linearGradient id="sparklineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#f97316" />
+                  </linearGradient>
+                  <linearGradient id="sparklineAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <!-- Grid guide lines -->
+                <line x1="0" y1="50" x2="800" y2="50" class="graph-grid-line" />
+                <line x1="0" y1="100" x2="800" y2="100" class="graph-grid-line" />
+                <line x1="0" y1="150" x2="800" y2="150" class="graph-grid-line" />
+                <!-- Area and Path plots -->
+                <path class="sparkline-area" id="sparklineArea" d="" />
+                <path class="sparkline-path" id="sparklinePath" d="" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Store Spatial Conversion Funnel -->
+        <div class="analytics-panel">
+          <div class="panel-header">
+            <h2>Conversion Funnel</h2>
+            <span class="panel-header-badge">STORE FUNNEL</span>
+          </div>
+          <div class="funnel-container" id="funnelGraph">
+            <!-- Stage 1: Entrance/Capture -->
+            <div class="funnel-stage">
+              <span class="funnel-stage-label">Capture</span>
+              <div class="funnel-stage-bar-wrapper">
+                <div class="funnel-stage-bar" id="funnel_capture" style="width: 100%;"></div>
+                <span class="funnel-stage-val" id="funnel_val_capture">100%</span>
+              </div>
+            </div>
+            <!-- Stage 2: Navigation corridor -->
+            <div class="funnel-stage">
+              <span class="funnel-stage-label">Aisle Browse</span>
+              <div class="funnel-stage-bar-wrapper">
+                <div class="funnel-stage-bar" id="funnel_browse" style="width: 82%;"></div>
+                <span class="funnel-stage-val" id="funnel_val_browse">82%</span>
+              </div>
+            </div>
+            <!-- Stage 3: Product evaluation -->
+            <div class="funnel-stage">
+              <span class="funnel-stage-label">Evaluation</span>
+              <div class="funnel-stage-bar-wrapper">
+                <div class="funnel-stage-bar" id="funnel_evaluate" style="width: 64%;"></div>
+                <span class="funnel-stage-val" id="funnel_val_evaluate">64%</span>
+              </div>
+            </div>
+            <!-- Stage 4: Checkout entry -->
+            <div class="funnel-stage">
+              <span class="funnel-stage-label">POS Queue</span>
+              <div class="funnel-stage-bar-wrapper">
+                <div class="funnel-stage-bar" id="funnel_queue" style="width: 48%;"></div>
+                <span class="funnel-stage-val" id="funnel_val_queue">48%</span>
+              </div>
+            </div>
+            <!-- Stage 5: Finalized transaction -->
+            <div class="funnel-stage">
+              <span class="funnel-stage-label">Purchase</span>
+              <div class="funnel-stage-bar-wrapper">
+                <div class="funnel-stage-bar" id="funnel_purchase" style="width: 38.6%;"></div>
+                <span class="funnel-stage-val" id="funnel_val_purchase">38.6%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           3. BOTTOM SECTION: THREE PILLAR GRID
+           ==================================================================== -->
+      <section class="bottom-pillars-section">
+        
+        <!-- Pillar 1: Store Spatial Blueprint Map -->
+        <div class="pillar-panel">
+          <div class="panel-header">
+            <h2>Floor Plan Blueprint</h2>
+            <div class="pillar-panel-actions">
+              <span class="legend-item"><span class="legend-color entrance"></span>Entrance</span>
+              <span class="legend-item"><span class="legend-color shelves"></span>Aisle</span>
+              <span class="legend-item"><span class="legend-color circular"></span>Promo</span>
+              <span class="legend-item"><span class="legend-color checkout"></span>Queue</span>
+            </div>
+          </div>
+          
+          <div class="map-container">
+            <!-- Floor Plan SVG Blueprint -->
+            <svg class="store-svg-map" viewBox="0 0 1000 500" id="storeMap">
+              <rect width="100%" height="100%" fill="transparent" />
+
+              <!-- Outer walls outline -->
+              <rect x="20" y="20" width="960" height="460" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5" rx="16" />
+
+              <!-- Lobby & Entrance (Far Left) -->
+              <g class="map-zone" data-zone-id="main_entrance_exit" onclick="showZoneDetails('main_entrance_exit')">
+                <rect class="zone-poly entrance-lobby" x="30" y="30" width="160" height="440" rx="8" />
+                <text x="110" y="240" class="zone-label-vertical">ENTRANCE / LOBBY</text>
+                <text class="map-utilization-badge" id="util_main_entrance_exit" x="110" y="270">UTIL: 0%</text>
+                <circle class="occupant-counter-badge" cx="110" cy="80" r="16" />
+                <text x="110" y="85" class="occupant-count" id="count_main_entrance_exit">0</text>
+              </g>
+
+              <!-- Fragrance Unit -->
+              <g class="map-zone" data-zone-id="mid_left_fragrance" onclick="showZoneDetails('mid_left_fragrance')">
+                <rect class="zone-poly shelf" x="250" y="60" width="100" height="70" rx="4" />
+                <text x="300" y="92" class="zone-label-sub">Fragrance</text>
+                <text class="map-utilization-badge" id="util_mid_left_fragrance" x="300" y="108">UTIL: 0%</text>
+                <circle class="occupant-counter-badge small" cx="330" cy="75" r="12" />
+                <text x="330" y="79" class="occupant-count small" id="count_mid_left_fragrance">0</text>
+              </g>
+
+              <!-- Nail Unit -->
+              <g class="map-zone" data-zone-id="mid_left_nail_unit" onclick="showZoneDetails('mid_left_nail_unit')">
+                <rect class="zone-poly shelf" x="250" y="160" width="100" height="70" rx="4" />
+                <text x="300" y="192" class="zone-label-sub">Nail Unit</text>
+                <text class="map-utilization-badge" id="util_mid_left_nail_unit" x="300" y="208">UTIL: 0%</text>
+                <circle class="occupant-counter-badge small" cx="330" cy="175" r="12" />
+                <text x="330" y="179" class="occupant-count small" id="count_mid_left_nail_unit">0</text>
+              </g>
+
+              <!-- Top Shelf Brands -->
+              <g class="map-zone" data-zone-id="top_shelf_eb_korean" onclick="showZoneDetails('top_shelf_eb_korean')">
+                <rect class="zone-poly shelf brand" x="400" y="30" width="60" height="40" rx="3" />
+                <text x="430" y="52" class="zone-label-mini">EB Korean</text>
+                <text class="map-utilization-badge" id="util_top_shelf_eb_korean" x="430" y="62">UTIL: 0%</text>
+                <circle class="occupant-counter-badge micro" cx="450" cy="40" r="9" />
+                <text x="450" y="43" class="occupant-count mini" id="count_top_shelf_eb_korean">0</text>
+              </g>
+              <g class="map-zone" data-zone-id="top_shelf_the_face_shop" onclick="showZoneDetails('top_shelf_the_face_shop')">
+                <rect class="zone-poly shelf brand" x="470" y="30" width="60" height="40" rx="3" />
+                <text x="500" y="52" class="zone-label-mini">Face Shop</text>
+                <text class="map-utilization-badge" id="util_top_shelf_the_face_shop" x="500" y="62">UTIL: 0%</text>
+                <circle class="occupant-counter-badge micro" cx="520" cy="40" r="9" />
+                <text x="520" y="43" class="occupant-count mini" id="count_top_shelf_the_face_shop">0</text>
+              </g>
+              <g class="map-zone" data-zone-id="top_shelf_minimalist" onclick="showZoneDetails('top_shelf_minimalist')">
+                <rect class="zone-poly shelf brand" x="540" y="30" width="65" height="40" rx="3" />
+                <text x="572" y="52" class="zone-label-mini">Minimalist</text>
+                <text class="map-utilization-badge" id="util_top_shelf_minimalist" x="572" y="62">UTIL: 0%</text>
+                <circle class="occupant-counter-badge micro" cx="595" cy="40" r="9" />
+                <text x="595" y="43" class="occupant-count mini" id="count_top_shelf_minimalist">0</text>
+              </g>
+              <g class="map-zone" data-zone-id="top_shelf_aqualogica" onclick="showZoneDetails('top_shelf_aqualogica')">
+                <rect class="zone-poly shelf brand" x="615" y="30" width="65" height="40" rx="3" />
+                <text x="647" y="52" class="zone-label-mini">Aqualogica</text>
+                <text class="map-utilization-badge" id="util_top_shelf_aqualogica" x="647" y="62">UTIL: 0%</text>
+                <circle class="occupant-counter-badge micro" cx="670" cy="40" r="9" />
+                <text x="670" y="43" class="occupant-count mini" id="count_top_shelf_aqualogica">0</text>
+              </g>
+
+              <!-- Central Circular Makeup Unit -->
+              <g class="map-zone" data-zone-id="makeup_unit" onclick="showZoneDetails('makeup_unit')">
+                <circle class="zone-poly circular-display" cx="520" cy="250" r="70" fill="url(#neonGlow)" />
+                <text x="520" y="240" class="zone-label">MAKEUP UNIT</text>
+                <text x="520" y="254" class="zone-label-sub">Promo Center</text>
+                <text class="map-utilization-badge" id="util_makeup_unit" x="520" y="270">UTIL: 0%</text>
+                <circle class="occupant-counter-badge" cx="520" cy="300" r="15" />
+                <text x="520" y="305" class="occupant-count" id="count_makeup_unit">0</text>
+              </g>
+
+              <!-- FOH Circulation (Walkway) -->
+              <g class="map-zone" data-zone-id="foh_open_floor" onclick="showZoneDetails('foh_open_floor')">
+                <rect class="zone-poly circulation" x="220" y="290" width="200" height="150" rx="8" />
+                <text x="320" y="350" class="zone-label">CENTRAL WALKWAY</text>
+                <text class="map-utilization-badge" id="util_foh_open_floor" x="320" y="375">UTIL: 0%</text>
+                <circle class="occupant-counter-badge" cx="320" cy="320" r="15" />
+                <text x="320" y="325" class="occupant-count" id="count_foh_open_floor">0</text>
+              </g>
+
+              <!-- Checkout Queue Lane -->
+              <g class="map-zone" data-zone-id="checkout_queue" onclick="showZoneDetails('checkout_queue')">
+                <rect class="zone-poly queue-lane" x="720" y="160" width="100" height="200" rx="8" />
+                <text x="770" y="250" class="zone-label-vertical">WAITING QUEUE</text>
+                <text class="map-utilization-badge" id="util_checkout_queue" x="770" y="280">UTIL: 0%</text>
+                <circle class="occupant-counter-badge alert-count-badge" cx="770" cy="190" r="16" />
+                <text x="770" y="195" class="occupant-count" id="count_checkout_queue">0</text>
+              </g>
+
+              <!-- Cashier Checkout Counter -->
+              <g class="map-zone" data-zone-id="checkout_counter" onclick="showZoneDetails('checkout_counter')">
+                <rect class="zone-poly cashier-counter" x="850" y="160" width="90" height="200" rx="8" />
+                <text x="895" y="250" class="zone-label-vertical">CASHIER POS</text>
+                <text class="map-utilization-badge" id="util_checkout_counter" x="895" y="280">UTIL: 0%</text>
+                <circle class="occupant-counter-badge" cx="895" cy="190" r="15" />
+                <text x="895" y="195" class="occupant-count" id="count_checkout_counter">0</text>
+              </g>
+
+              <!-- Gate Entry/Exit Lines -->
+              <line x1="190" y1="120" x2="190" y2="360" stroke="rgba(255,255,255,0.2)" stroke-width="3" stroke-dasharray="6,4" />
+              <polygon points="205,240 190,225 175,240" fill="rgba(16, 185, 129, 0.8)" />
+              <polygon points="175,260 190,275 205,260" fill="rgba(255,255,255,0.6)" />
+              <text x="210" y="254" class="map-annotation text-purple">ENTRY</text>
+              <text x="145" y="254" class="map-annotation text-blue">EXIT</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Operations Command Center (Alerts Panel) -->
+        <div class="pillar-panel">
+          <div class="panel-header">
+            <h2>Command Operations</h2>
+            <span class="active-alerts-badge" id="activeAlertCount">0 ACTIVE</span>
+          </div>
+          <div class="alerts-list-wrapper" id="alertsList">
+            <div class="empty-alerts-card">
+              <span>🔔</span>
+              <p>Operational zones are fully clear. Telemetry buffers show all metrics performing within baseline limits.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Real-Time Shopper Activity Timeline -->
+        <div class="pillar-panel">
+          <div class="panel-header">
+            <h2>Activity Timeline</h2>
+            <span class="panel-header-badge">LIVE TRACKS</span>
+          </div>
+          <div class="timeline-feed-wrapper">
+            <div class="timeline-line"></div>
+            <div class="timeline-cards-container" id="eventStreamLog">
+              <!-- Chronological Timeline Cards injected by app.js -->
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Localized Zone Details Modal Dialog -->
+  <div class="modal-overlay" id="zoneModal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <header class="modal-header">
+        <h3 id="modalZoneTitle">Zone Metrics</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </header>
+      <div class="modal-body">
+        <div class="modal-grid">
+          <div class="modal-details">
+            <div class="modal-metric">
+              <span class="m-lbl">Live Occupancy</span>
+              <span class="m-val" id="modalZoneOccupancy">0</span>
+            </div>
+            <div class="modal-metric">
+              <span class="m-lbl">Target Hold Power</span>
+              <span class="m-val" id="modalZoneHoldPower">0%</span>
+            </div>
+            <div class="modal-metric">
+              <span class="m-lbl">Total Stops</span>
+              <span class="m-val" id="modalZoneStops">0</span>
+            </div>
+            <p class="modal-desc" id="modalZoneDesc">Awaiting telemetry frames...</p>
+          </div>
+          <div class="modal-visualization">
+            <!-- Micro Glass Radar Sweep -->
+            <div class="radar-box">
+              <div class="radar-scan"></div>
+              <div class="radar-grid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>

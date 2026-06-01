@@ -1,0 +1,235 @@
+# PurpleInsight — Brigade Road Store Full Camera Pipeline Config
+# Auto-generated from: Brigade Road - Store layout.xlsx
+# Store: Brigade_Bangalore | Frame: 1280x720
+
+store_id: "store-7ef38ab2-1456-42d4-a0fb-365922e3914a"
+camera_id: "cam-c48f88c2-3bbd-4654-9988-faad44e59df3"
+
+video_source: "data/CCTV Footage/CAM 1.mp4"
+
+model_path: "yolov8n.pt"
+confidence_threshold: 0.40
+iou_threshold: 0.45
+tracker_config: "bytetrack.yaml"
+device: "cpu"
+
+occupancy_interval: 5.0
+dwell_cooldown_seconds: 3.0
+re_entry_time_threshold: 15.0
+re_entry_distance_threshold: 80.0
+
+# Main Entry/Exit Gate — Curved glass sliding door (left wall)
+entrance_gate:
+  name: "main_entrance_exit"
+  line_a: [30, 580]
+  line_b: [30, 280]
+
+# ─── Zone Definitions ───────────────────────────────────────────────────────
+zones:
+
+  # ── ENTRANCE / LOBBY ──────────────────────────────────────────────────────
+  - id: "entrance_lobby"
+    name: "Entrance Lobby"
+    polygon:
+      - [10,  260]
+      - [100, 260]
+      - [100, 580]
+      - [10,  580]
+
+  # ── TOP WALL SHELVES (Brand Row) ──────────────────────────────────────────
+  - id: "top_shelf_eb_korean"
+    name: "Top Shelf - EB Korean"
+    polygon:
+      - [85,  30]
+      - [195, 30]
+      - [195, 120]
+      - [85,  120]
+
+  - id: "top_shelf_the_face_shop"
+    name: "Top Shelf - The Face Shop"
+    polygon:
+      - [200, 30]
+      - [310, 30]
+      - [310, 120]
+      - [200, 120]
+
+  - id: "top_shelf_good_vibes"
+    name: "Top Shelf - Good Vibes"
+    polygon:
+      - [315, 30]
+      - [420, 30]
+      - [420, 120]
+      - [315, 120]
+
+  - id: "top_shelf_dermdoc"
+    name: "Top Shelf - DermDoc"
+    polygon:
+      - [425, 30]
+      - [520, 30]
+      - [520, 120]
+      - [425, 120]
+
+  - id: "top_shelf_minimalist"
+    name: "Top Shelf - Minimalist"
+    polygon:
+      - [525, 30]
+      - [625, 30]
+      - [625, 120]
+      - [525, 120]
+
+  - id: "top_shelf_aqualogica"
+    name: "Top Shelf - Aqualogica"
+    polygon:
+      - [630, 30]
+      - [730, 30]
+      - [730, 120]
+      - [630, 120]
+
+  - id: "top_shelf_lakme_skin"
+    name: "Top Shelf - Lakme Skin"
+    polygon:
+      - [735, 30]
+      - [855, 30]
+      - [855, 120]
+      - [735, 120]
+
+  - id: "top_shelf_accessories"
+    name: "Top Shelf - Accessories"
+    polygon:
+      - [860, 30]
+      - [990, 30]
+      - [990, 120]
+      - [860, 120]
+
+  # ── MID-LEFT STANDALONE UNITS ─────────────────────────────────────────────
+  - id: "mid_left_fragrance"
+    name: "Fragrance Unit"
+    polygon:
+      - [235, 250]
+      - [295, 250]
+      - [295, 470]
+      - [235, 470]
+
+  - id: "mid_left_nail_unit"
+    name: "Nail Unit"
+    polygon:
+      - [298, 250]
+      - [360, 250]
+      - [360, 470]
+      - [298, 470]
+
+  # ── CENTRAL FLOOR ─────────────────────────────────────────────────────────
+  - id: "foh_open_floor"
+    name: "F.O.H - Front of House Open Floor"
+    polygon:
+      - [100, 140]
+      - [680, 140]
+      - [680, 570]
+      - [100, 570]
+
+  - id: "makeup_unit"
+    name: "Makeup Unit - Central Circular Display"
+    polygon:
+      - [540, 230]
+      - [680, 230]
+      - [680, 440]
+      - [540, 440]
+
+  # ── BOTTOM FRONT SHELVES (Brand Row) ─────────────────────────────────────
+  - id: "bottom_shelf_maybelline"
+    name: "Bottom Shelf - Maybelline"
+    polygon:
+      - [40,  600]
+      - [150, 600]
+      - [150, 690]
+      - [40,  690]
+
+  - id: "bottom_shelf_faces_canada"
+    name: "Bottom Shelf - Faces Canada"
+    polygon:
+      - [155, 600]
+      - [275, 600]
+      - [275, 690]
+      - [155, 690]
+
+  - id: "bottom_shelf_lakme"
+    name: "Bottom Shelf - Lakme"
+    polygon:
+      - [280, 600]
+      - [380, 600]
+      - [380, 690]
+      - [280, 690]
+
+  - id: "bottom_shelf_colorbar_sugar"
+    name: "Bottom Shelf - Colorbar + Sugar"
+    polygon:
+      - [385, 600]
+      - [510, 600]
+      - [510, 690]
+      - [385, 690]
+
+  - id: "bottom_shelf_swiss_beauty"
+    name: "Bottom Shelf - Swiss Beauty"
+    polygon:
+      - [515, 600]
+      - [620, 600]
+      - [620, 690]
+      - [515, 690]
+
+  - id: "bottom_shelf_renee_ny_bae"
+    name: "Bottom Shelf - Renee / NY Bae"
+    polygon:
+      - [625, 600]
+      - [745, 600]
+      - [745, 690]
+      - [625, 690]
+
+  - id: "bottom_shelf_alps_goodness"
+    name: "Bottom Shelf - Alps Goodness"
+    polygon:
+      - [750, 600]
+      - [850, 600]
+      - [850, 690]
+      - [750, 690]
+
+  - id: "bottom_shelf_streax"
+    name: "Bottom Shelf - Streax"
+    polygon:
+      - [855, 600]
+      - [960, 600]
+      - [960, 690]
+      - [855, 690]
+
+  # ── CHECKOUT & QUEUE ──────────────────────────────────────────────────────
+  - id: "checkout_queue"
+    name: "Checkout Waiting Queue"
+    polygon:
+      - [820, 200]
+      - [990, 200]
+      - [990, 500]
+      - [820, 500]
+
+  - id: "checkout_counter"
+    name: "Cash Counter - Checkout"
+    polygon:
+      - [990,  200]
+      - [1150, 200]
+      - [1150, 430]
+      - [990,  430]
+
+  # ── RIGHT-SIDE ZONES ──────────────────────────────────────────────────────
+  - id: "led_panel_display"
+    name: "55-inch LED Panel Display"
+    polygon:
+      - [1155, 120]
+      - [1270, 120]
+      - [1270, 380]
+      - [1155, 380]
+
+  - id: "pmu_station"
+    name: "PMU - Permanent Makeup Station"
+    polygon:
+      - [1155, 380]
+      - [1270, 380]
+      - [1270, 520]
+      - [1155, 520]

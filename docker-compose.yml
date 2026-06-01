@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: purple-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: purple_user
+      POSTGRES_PASSWORD: purple_pass
+      POSTGRES_DB: purple_store
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U purple_user -d purple_store"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: purple-backend
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://purple_user:purple_pass@postgres:5432/purple_store
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: purple-frontend
+    restart: always
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:

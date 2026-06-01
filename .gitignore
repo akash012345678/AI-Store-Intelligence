@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database files
+*.db
+*.sqlite3
+
+# Model weights
+*.pt
+*.onnx
+*.engine
+
+# Environment files
+.env
+.env.local
+.env.*.local
+venv/
+ENV/
+env/
+.venv/
+
+# Pytest cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local outputs and video files
+edge/data/events.jsonl
+edge/output/
+data/CCTV Footage/
+
+# Challenge datasets and videos
+data/*.csv
+data/*.xlsx
+*.mp4
+*.avi
+*.mov
+

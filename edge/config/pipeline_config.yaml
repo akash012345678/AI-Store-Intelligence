@@ -1,0 +1,56 @@
+# PurpleInsight Edge Pipeline Configuration
+
+store_id: "store-7ef38ab2-1456-42d4-a0fb-365922e3914a"
+camera_id: "cam-c48f88c2-3bbd-4654-9988-faad44e59df1"
+
+# Ingestion Settings
+# Can be a file path (e.g., "data/sample.mp4"), an RTSP URL ("rtsp://user:pass@ip:port/h264"), or integer index for webcam
+video_source: "0"
+
+# YOLO & Tracker Settings
+model_path: "yolov8n.pt"            # Automatically downloads if not present locally
+confidence_threshold: 0.40          # Detections below this are ignored
+iou_threshold: 0.45                 # IoU threshold for NMS
+tracker_config: "bytetrack.yaml"    # Tracker configuration (bytetrack or botsort)
+device: "cpu"                       # "cpu", "cuda", or "0" (GPU index)
+
+# Analytics Tuning Parameters
+occupancy_interval: 5.0             # Emits occupancy telemetry every N seconds
+dwell_cooldown_seconds: 3.0         # Cooldown window to debounce brief tracking dropouts in zones
+re_entry_time_threshold: 15.0       # Maximum seconds to stitch a track re-entering at the gate
+re_entry_distance_threshold: 80.0   # Maximum pixel distance to stitch tracks at the gate
+
+# Entry / Exit Gate (Directed Line Segment AB)
+# Line A to Line B: A person crossing from the right to the left of the vector is an ENTRY.
+# A person crossing from the left to the right of the vector is an EXIT.
+# (Configured for standard 1280x720 frame coordinates)
+entrance_gate:
+  name: "main_entrance"
+  line_a: [200, 600]
+  line_b: [1080, 600]
+
+# Interactive Layout Zones (Polygons defined by vertices)
+zones:
+  - id: "aisle_1_fresh"
+    name: "Aisle 1 - Fresh Produce"
+    polygon:
+      - [100, 100]
+      - [450, 100]
+      - [450, 400]
+      - [100, 400]
+  
+  - id: "aisle_2_snacks"
+    name: "Aisle 2 - Snacks & Beverages"
+    polygon:
+      - [500, 100]
+      - [850, 100]
+      - [850, 450]
+      - [500, 450]
+
+  - id: "checkout_queue"
+    name: "Checkout Waiting Queue"
+    polygon:
+      - [900, 200]
+      - [1200, 200]
+      - [1200, 500]
+      - [900, 500]

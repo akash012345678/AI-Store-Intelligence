@@ -1,0 +1,17 @@
+# Docker Ignore Patterns for PurpleInsight
+.git
+.gitignore
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.pt
+.venv
+venv
+edge/output/
+edge/data/events.jsonl
+
+# Exclude heavy raw CCTV footage feeds from backend container context
+data/CCTV Footage/

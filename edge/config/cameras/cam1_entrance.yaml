@@ -1,0 +1,36 @@
+# PurpleInsight CAM 1 Profile: Entrance & Exit Lobby
+
+store_id: "store-7ef38ab2-1456-42d4-a0fb-365922e3914a"
+camera_id: "cam-c48f88c2-3bbd-4654-9988-faad44e59df1"
+
+# Target CCTV Ingestion video stream (relative from project workspace)
+video_source: "data/CCTV Footage/CAM 1.mp4"
+
+# Model settings
+model_path: "yolov8n.pt"
+confidence_threshold: 0.40
+iou_threshold: 0.45
+tracker_config: "bytetrack.yaml"
+device: "cpu"
+
+# Analytics parameters
+occupancy_interval: 5.0
+dwell_cooldown_seconds: 3.0
+re_entry_time_threshold: 15.0
+re_entry_distance_threshold: 80.0
+
+# Entrance Gate Segment AB
+entrance_gate:
+  name: "main_entrance"
+  line_a: [200, 600]
+  line_b: [1080, 600]
+
+# Layout zones (entrance only)
+zones:
+  - id: "main_entrance_exit"
+    name: "Entrance & Exit Lobby"
+    polygon:
+      - [20, 220]
+      - [140, 220]
+      - [140, 400]
+      - [20, 400]

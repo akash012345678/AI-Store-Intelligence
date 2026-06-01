@@ -1,0 +1,641 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "store_id": "store-7ef38ab2-1456-42d4-a0fb-365922e3914a",
+    "store_name": "Brigade_Bangalore",
+    "layout_source": "Brigade Road - Store layout.xlsx",
+    "frame_width": 1280,
+    "frame_height": 720,
+    "layout_width_mm": 9360,
+    "layout_height_mm": 4300,
+    "coordinate_system": "pixel_topleft_origin",
+    "generated_at": "2026-05-31T19:20:00+05:30",
+    "notes": "All polygons defined in [x, y] pixel coordinates for a 1280x720 camera frame. Zones mapped from architectural drawing dimensions: 2594+500+1347+2000=layout widths. FOH = Front of House (open floor). PMU = Permanent Makeup Unit."
+  },
+
+  "entrance_gate": {
+    "zone_id": "gate_entrance_exit",
+    "zone_name": "Main Entrance / Exit Gate",
+    "gate_type": "bidirectional_line",
+    "line_a": [30, 580],
+    "line_b": [30, 280],
+    "direction_entry": "right_to_left",
+    "direction_exit": "left_to_right",
+    "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df1",
+    "notes": "Curved glass sliding door on far left wall. Entry direction: crossing line from right (inside) to left (glass)."
+  },
+
+  "zones": [
+
+    {
+      "zone_id": "entrance_lobby",
+      "zone_name": "Entrance Lobby",
+      "zone_type": "entrance",
+      "zone_subtype": "transition",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df1",
+      "polygon": [
+        [10, 260],
+        [100, 260],
+        [100, 580],
+        [10, 580]
+      ],
+      "centroid": [55, 420],
+      "heatmap_weight": 0.8,
+      "engagement_type": "passage",
+      "alert_capacity": null,
+      "notes": "Curved glass entrance on far left. Sliding door zone."
+    },
+
+    {
+      "zone_id": "top_shelf_eb_korean",
+      "zone_name": "Top Shelf - EB Korean",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [85, 30],
+        [195, 30],
+        [195, 120],
+        [85, 120]
+      ],
+      "centroid": [140, 75],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "EB Korean",
+      "department": "skin",
+      "notes": "Top wall shelf - EB Korean section. Green tag. Upper perimeter shelf row."
+    },
+
+    {
+      "zone_id": "top_shelf_the_face_shop",
+      "zone_name": "Top Shelf - The Face Shop",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [200, 30],
+        [310, 30],
+        [310, 120],
+        [200, 120]
+      ],
+      "centroid": [255, 75],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "The Face Shop",
+      "department": "skin",
+      "notes": "Top wall shelf - The Face Shop. Green tag."
+    },
+
+    {
+      "zone_id": "top_shelf_good_vibes",
+      "zone_name": "Top Shelf - Good Vibes",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [315, 30],
+        [420, 30],
+        [420, 120],
+        [315, 120]
+      ],
+      "centroid": [368, 75],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Good Vibes",
+      "department": "skin",
+      "notes": "Top wall shelf - Good Vibes. Green tag."
+    },
+
+    {
+      "zone_id": "top_shelf_dermdoc",
+      "zone_name": "Top Shelf - DermDoc",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [425, 30],
+        [520, 30],
+        [520, 120],
+        [425, 120]
+      ],
+      "centroid": [473, 75],
+      "heatmap_weight": 1.3,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "DermDoc",
+      "department": "skin",
+      "notes": "Top wall shelf - DermDoc (PurpllePrivate Brand). Green tag."
+    },
+
+    {
+      "zone_id": "top_shelf_minimalist",
+      "zone_name": "Top Shelf - Minimalist",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [525, 30],
+        [625, 30],
+        [625, 120],
+        [525, 120]
+      ],
+      "centroid": [575, 75],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Minimalist",
+      "department": "skin",
+      "notes": "Top wall shelf - Minimalist. Green tag."
+    },
+
+    {
+      "zone_id": "top_shelf_aqualogica",
+      "zone_name": "Top Shelf - Aqualogica",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [630, 30],
+        [730, 30],
+        [730, 120],
+        [630, 120]
+      ],
+      "centroid": [680, 75],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Aqualogica",
+      "department": "skin",
+      "notes": "Top wall shelf - Aqualogica. Green tag."
+    },
+
+    {
+      "zone_id": "top_shelf_lakme_skin",
+      "zone_name": "Top Shelf - Lakme Skin",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [735, 30],
+        [855, 30],
+        [855, 120],
+        [735, 120]
+      ],
+      "centroid": [795, 75],
+      "heatmap_weight": 1.3,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Lakme",
+      "department": "makeup",
+      "notes": "Top wall shelf - Lakme Skin. Green tag."
+    },
+
+    {
+      "zone_id": "top_shelf_accessories",
+      "zone_name": "Top Shelf - Accessories",
+      "zone_type": "product_shelf",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df2",
+      "polygon": [
+        [860, 30],
+        [990, 30],
+        [990, 120],
+        [860, 120]
+      ],
+      "centroid": [925, 75],
+      "heatmap_weight": 1.0,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Accessories",
+      "department": "accessories",
+      "notes": "Top wall shelf - Accessories. Cyan/teal tag. Near checkout side."
+    },
+
+    {
+      "zone_id": "mid_left_fragrance",
+      "zone_name": "Fragrance Unit",
+      "zone_type": "product_shelf",
+      "zone_subtype": "standalone_unit",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df3",
+      "polygon": [
+        [235, 250],
+        [295, 250],
+        [295, 470],
+        [235, 470]
+      ],
+      "centroid": [265, 360],
+      "heatmap_weight": 1.4,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "department": "fragrance",
+      "notes": "Mid-left standalone Fragrance unit. ~500mm from left boundary. Vertical slim unit."
+    },
+
+    {
+      "zone_id": "mid_left_nail_unit",
+      "zone_name": "Nail Unit",
+      "zone_type": "product_shelf",
+      "zone_subtype": "standalone_unit",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df3",
+      "polygon": [
+        [298, 250],
+        [360, 250],
+        [360, 470],
+        [298, 470]
+      ],
+      "centroid": [329, 360],
+      "heatmap_weight": 1.4,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Nail COUNTRY A",
+      "department": "makeup",
+      "notes": "Nail Unit - teal/cyan highlight. Adjacent to Fragrance. Mid store left cluster."
+    },
+
+    {
+      "zone_id": "foh_open_floor",
+      "zone_name": "F.O.H - Front of House Open Floor",
+      "zone_type": "circulation",
+      "zone_subtype": "open_floor",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df3",
+      "polygon": [
+        [100, 140],
+        [680, 140],
+        [680, 570],
+        [100, 570]
+      ],
+      "centroid": [390, 355],
+      "heatmap_weight": 0.6,
+      "engagement_type": "passage",
+      "alert_capacity": 20,
+      "notes": "Central open floor (FOH). Main shopper circulation corridor. High-traffic area."
+    },
+
+    {
+      "zone_id": "makeup_unit",
+      "zone_name": "Makeup Unit - Central Display",
+      "zone_type": "product_shelf",
+      "zone_subtype": "circular_display",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df3",
+      "polygon": [
+        [540, 230],
+        [680, 230],
+        [680, 440],
+        [540, 440]
+      ],
+      "centroid": [610, 335],
+      "heatmap_weight": 2.0,
+      "engagement_type": "display",
+      "alert_capacity": null,
+      "brand": "MAKEUP UNIT",
+      "department": "makeup",
+      "notes": "Central circular Makeup Unit (900mm diameter). High-priority engagement zone. Two-level rotating display."
+    },
+
+    {
+      "zone_id": "bottom_shelf_maybelline",
+      "zone_name": "Bottom Shelf - Maybelline",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [40, 600],
+        [150, 600],
+        [150, 690],
+        [40, 690]
+      ],
+      "centroid": [95, 645],
+      "heatmap_weight": 1.3,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Maybelline",
+      "department": "makeup",
+      "notes": "Bottom front shelf - Maybelline. Peach/salmon color tag. Backlit section near entrance."
+    },
+
+    {
+      "zone_id": "bottom_shelf_faces_canada",
+      "zone_name": "Bottom Shelf - Faces Canada",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [155, 600],
+        [275, 600],
+        [275, 690],
+        [155, 690]
+      ],
+      "centroid": [215, 645],
+      "heatmap_weight": 1.5,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Faces Canada",
+      "department": "makeup",
+      "notes": "Bottom front shelf - Faces Canada. Top-selling brand in dataset."
+    },
+
+    {
+      "zone_id": "bottom_shelf_lakme",
+      "zone_name": "Bottom Shelf - Lakme",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [280, 600],
+        [380, 600],
+        [380, 690],
+        [280, 690]
+      ],
+      "centroid": [330, 645],
+      "heatmap_weight": 1.3,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Lakme",
+      "department": "makeup",
+      "notes": "Bottom front shelf - Lakme."
+    },
+
+    {
+      "zone_id": "bottom_shelf_colorbar_sugar",
+      "zone_name": "Bottom Shelf - Colorbar + Sugar",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [385, 600],
+        [510, 600],
+        [510, 690],
+        [385, 690]
+      ],
+      "centroid": [448, 645],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Colorbar / Sugar",
+      "department": "makeup",
+      "notes": "Bottom front shelf - Colorbar + Sugar combo section."
+    },
+
+    {
+      "zone_id": "bottom_shelf_swiss_beauty",
+      "zone_name": "Bottom Shelf - Swiss Beauty",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [515, 600],
+        [620, 600],
+        [620, 690],
+        [515, 690]
+      ],
+      "centroid": [568, 645],
+      "heatmap_weight": 1.1,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Swiss Beauty",
+      "department": "makeup",
+      "notes": "Bottom front shelf - Swiss Beauty."
+    },
+
+    {
+      "zone_id": "bottom_shelf_renee_ny_bae",
+      "zone_name": "Bottom Shelf - Renee / NY Bae",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [625, 600],
+        [745, 600],
+        [745, 690],
+        [625, 690]
+      ],
+      "centroid": [685, 645],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Renee / NY Bae",
+      "department": "makeup",
+      "notes": "Bottom front shelf - Renee + NY Bae combined section."
+    },
+
+    {
+      "zone_id": "bottom_shelf_alps_goodness",
+      "zone_name": "Bottom Shelf - Alps Goodness",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [750, 600],
+        [850, 600],
+        [850, 690],
+        [750, 690]
+      ],
+      "centroid": [800, 645],
+      "heatmap_weight": 1.2,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Alps Goodness",
+      "department": "hair",
+      "notes": "Bottom front shelf - Alps Goodness. Yellow-gold highlight in layout."
+    },
+
+    {
+      "zone_id": "bottom_shelf_streax",
+      "zone_name": "Bottom Shelf - Streax",
+      "zone_type": "brand_zone",
+      "zone_subtype": "shelf_engagement",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [855, 600],
+        [960, 600],
+        [960, 690],
+        [855, 690]
+      ],
+      "centroid": [908, 645],
+      "heatmap_weight": 1.0,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "brand": "Streax",
+      "department": "hair",
+      "notes": "Bottom front shelf - Streax. Yellow highlight."
+    },
+
+    {
+      "zone_id": "checkout_counter",
+      "zone_name": "Cash Counter - Checkout",
+      "zone_type": "checkout",
+      "zone_subtype": "pos_terminal",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df6",
+      "polygon": [
+        [990, 200],
+        [1150, 200],
+        [1150, 430],
+        [990, 430]
+      ],
+      "centroid": [1070, 315],
+      "heatmap_weight": 1.8,
+      "engagement_type": "transaction",
+      "alert_capacity": null,
+      "notes": "Cash Counter (POS). Right side of store. Adjacent to 55-inch LED panel."
+    },
+
+    {
+      "zone_id": "checkout_queue",
+      "zone_name": "Checkout Waiting Queue",
+      "zone_type": "checkout",
+      "zone_subtype": "queue_zone",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df6",
+      "polygon": [
+        [820, 200],
+        [990, 200],
+        [990, 500],
+        [820, 500]
+      ],
+      "centroid": [905, 350],
+      "heatmap_weight": 1.5,
+      "engagement_type": "queue",
+      "alert_capacity": 4,
+      "queue_alert_thresholds": {
+        "length_warning": 3,
+        "length_critical": 5,
+        "wait_seconds_warning": 90,
+        "wait_seconds_critical": 180
+      },
+      "notes": "Queue area in front of cash counter. Triggers QueueAlertEvents when > 4 customers or > 90s wait."
+    },
+
+    {
+      "zone_id": "pmu_station",
+      "zone_name": "PMU - Permanent Makeup Station",
+      "zone_type": "service_zone",
+      "zone_subtype": "specialist_service",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df5",
+      "polygon": [
+        [1155, 380],
+        [1270, 380],
+        [1270, 520],
+        [1155, 520]
+      ],
+      "centroid": [1213, 450],
+      "heatmap_weight": 1.6,
+      "engagement_type": "service",
+      "alert_capacity": 2,
+      "notes": "PMU (Permanent Makeup Unit) station. Bottom-right corner. High-value service area."
+    },
+
+    {
+      "zone_id": "led_panel_display",
+      "zone_name": "55-inch LED Panel Display",
+      "zone_type": "display_zone",
+      "zone_subtype": "digital_signage",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df5",
+      "polygon": [
+        [1155, 120],
+        [1270, 120],
+        [1270, 380],
+        [1155, 380]
+      ],
+      "centroid": [1213, 250],
+      "heatmap_weight": 0.9,
+      "engagement_type": "display",
+      "alert_capacity": null,
+      "notes": "55-inch LED panel on far right wall. Digital promotions display. Tracks viewer attention."
+    },
+
+    {
+      "zone_id": "backlit_section",
+      "zone_name": "Backlit Display Section",
+      "zone_type": "product_shelf",
+      "zone_subtype": "backlit_display",
+      "camera_id": "cam-c48f88c2-3bbd-4654-9988-faad44e59df4",
+      "polygon": [
+        [10, 600],
+        [38, 600],
+        [38, 690],
+        [10, 690]
+      ],
+      "centroid": [24, 645],
+      "heatmap_weight": 1.0,
+      "engagement_type": "shelf",
+      "alert_capacity": null,
+      "notes": "BACKLIT section at far left bottom corner. Entrance-adjacent promotional display."
+    }
+  ],
+
+  "heatmap_config": {
+    "frame_width": 1280,
+    "frame_height": 720,
+    "grid_scale_px": 20,
+    "kde_sigma": 35.0,
+    "normalization": "max_min",
+    "output_resolution": [64, 36],
+    "zone_weight_multipliers": {
+      "entrance": 0.8,
+      "checkout": 1.8,
+      "brand_zone": 1.3,
+      "product_shelf": 1.2,
+      "circulation": 0.6,
+      "service_zone": 1.6,
+      "display_zone": 0.9
+    },
+    "heatmap_zones": [
+      "entrance_lobby", "top_shelf_eb_korean", "top_shelf_the_face_shop",
+      "top_shelf_good_vibes", "top_shelf_dermdoc", "top_shelf_minimalist",
+      "top_shelf_aqualogica", "top_shelf_lakme_skin", "top_shelf_accessories",
+      "mid_left_fragrance", "mid_left_nail_unit", "foh_open_floor",
+      "makeup_unit", "bottom_shelf_maybelline", "bottom_shelf_faces_canada",
+      "bottom_shelf_lakme", "bottom_shelf_colorbar_sugar", "bottom_shelf_swiss_beauty",
+      "bottom_shelf_renee_ny_bae", "bottom_shelf_alps_goodness", "bottom_shelf_streax",
+      "checkout_counter", "checkout_queue", "pmu_station", "led_panel_display"
+    ]
+  },
+
+  "shelf_engagement_config": {
+    "minimum_dwell_seconds_attractive": 5.0,
+    "minimum_dwell_seconds_engaged": 15.0,
+    "minimum_dwell_seconds_deep_engage": 45.0,
+    "pass_by_coefficient": 0.15,
+    "shelf_zones": [
+      "top_shelf_eb_korean", "top_shelf_the_face_shop", "top_shelf_good_vibes",
+      "top_shelf_dermdoc", "top_shelf_minimalist", "top_shelf_aqualogica",
+      "top_shelf_lakme_skin", "top_shelf_accessories",
+      "mid_left_fragrance", "mid_left_nail_unit", "makeup_unit",
+      "bottom_shelf_maybelline", "bottom_shelf_faces_canada", "bottom_shelf_lakme",
+      "bottom_shelf_colorbar_sugar", "bottom_shelf_swiss_beauty",
+      "bottom_shelf_renee_ny_bae", "bottom_shelf_alps_goodness", "bottom_shelf_streax",
+      "backlit_section"
+    ],
+    "brand_zone_ids": [
+      "top_shelf_eb_korean", "top_shelf_the_face_shop", "top_shelf_good_vibes",
+      "top_shelf_dermdoc", "top_shelf_minimalist", "top_shelf_aqualogica",
+      "top_shelf_lakme_skin", "mid_left_fragrance", "mid_left_nail_unit",
+      "bottom_shelf_maybelline", "bottom_shelf_faces_canada", "bottom_shelf_lakme",
+      "bottom_shelf_colorbar_sugar", "bottom_shelf_swiss_beauty",
+      "bottom_shelf_renee_ny_bae", "bottom_shelf_alps_goodness", "bottom_shelf_streax"
+    ]
+  },
+
+  "coordinate_mapping": {
+    "strategy": "planar_homography",
+    "floor_plan_reference_points": [
+      {"zone_id": "entrance_lobby",          "floor_x_mm": 0,    "floor_y_mm": 2150, "pixel_x": 55,   "pixel_y": 420},
+      {"zone_id": "top_shelf_eb_korean",     "floor_x_mm": 500,  "floor_y_mm": 0,    "pixel_x": 140,  "pixel_y": 75},
+      {"zone_id": "makeup_unit",             "floor_x_mm": 4441, "floor_y_mm": 2150, "pixel_x": 610,  "pixel_y": 335},
+      {"zone_id": "checkout_counter",        "floor_x_mm": 8500, "floor_y_mm": 1400, "pixel_x": 1070, "pixel_y": 315},
+      {"zone_id": "bottom_shelf_faces_canada","floor_x_mm": 1200, "floor_y_mm": 4300, "pixel_x": 215,  "pixel_y": 645},
+      {"zone_id": "pmu_station",             "floor_x_mm": 9100, "floor_y_mm": 3800, "pixel_x": 1213, "pixel_y": 450}
+    ],
+    "homography_matrix": [
+      [0.7153,  0.0082, 10.0],
+      [0.0031,  0.7201, 12.0],
+      [0.0001, -0.0001,  1.0]
+    ],
+    "scale_px_per_mm": {
+      "x_axis": 0.1366,
+      "y_axis": 0.1674
+    }
+  }
+}
