@@ -87,7 +87,7 @@ def create_app(config_path: str = "backend/config/backend_config.yaml") -> FastA
 
     # 3. Create FastAPI app metadata
     app = FastAPI(
-        title="PurpleInsight AI Store Intelligence API Layer",
+        title="RetailPulse AI Store Intelligence API Layer",
         description=(
             "Enterprise-grade store analytics and computer vision metadata compiler. "
             "Integrates CCTV camera counts, dwell trajectories, and POS sales "
